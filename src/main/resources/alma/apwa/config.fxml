@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="alma.apwa.WmgController"
+            stylesheets="@style.css">
+
+    <!-- Left panel  - watermark preferences -->
+
+    <left>
+        <VBox styleClass="left-panel" spacing="10" style="-fx-padding: 15; -fx-background-color: #f0f0f0;" >
+            <Label text="WATERMARK TYPE" style="-fx-font-weight: bold;"/>
+
+            <RadioButton fx:id="textRadioButton" text="Text" selected="true"/>
+            <RadioButton fx:id="logoRadioButton" text="Picture"/>
+            <CheckBox fx:id="combinedGenerationCheckedBox" text="Use both text + picture" />
+
+            <Separator/>
+
+            <!-- TEXT SETTINGS -->
+
+            <VBox fx:id="textSettingsBox" spacing="5">
+                <Label text="TEXT SETTINGS" style="-fx-font-weight: bold;"/>
+                <Label text="Watermark Text:"/>
+                <TextField fx:id="watermarkText" promptText="Enter watermark text"/>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Font:"/>
+                    <ComboBox fx:id="fontFamilyCombo" prefWidth="150"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Size:"/>
+                    <TextField fx:id="fontSizeField" prefWidth="50"/>
+                </HBox>
+
+                <VBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="APPEARANCE" style="-fx-font-weight: bold;"/>
+                    <HBox>
+                        <Label text="Color:  "/>
+                        <ColorPicker fx:id="colorPicker"/>
+                    </HBox>
+                </VBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Opacity:"/>
+                    <Slider fx:id="opacitySlider" min="0" max="100" value="50" prefWidth="150"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Element Angle:"/>
+                    <Slider fx:id="angleSlider" min="0" max="360" value="0" prefWidth="100"/>
+                    <TextField fx:id="angleField" prefWidth="50"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Grid Angle:"/>
+                    <Slider fx:id="gridAngleSlider" min="0" max="360" value="0" prefWidth="100"/>
+                    <TextField fx:id="gridAngleField" prefWidth="50"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Spacing:"/>
+                    <TextField fx:id="spacingField" prefWidth="50"/>
+                    <Label text="px"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Scale:"/>
+                    <Slider fx:id="scaleSlider" min="10" max="200" value="100" prefWidth="150"/>
+                    <Label fx:id="scalePercentLabel" text="100%"/>
+                </HBox>
+
+                <Separator/>
+
+                <Label text="EFFECTS" style="-fx-font-weight: bold;"/>
+                <CheckBox fx:id="shadowCheckBox" text="Shadow"/>
+                <CheckBox fx:id="tileCheckBox" text="Tile watermark"/>
+            </VBox>
+
+            <!-- IMAGE SETTINGS-->
+
+            <VBox fx:id="imageSettingsBox" spacing="5" visible="false" managed="false">
+                <Label text="IMAGE SETTINGS" style="-fx-font-weight: bold;"/>
+
+                <Button fx:id="loadLogoButton" text="Load Logo Image"
+                        style="-fx-min-width: 120; -fx-pref-height: 30;"/>
+                <Button fx:id="clearLogoButton" text="Clear image"
+                        style="-fx-min-width: 60; -fx-pref-height: 30;"/>
+
+                <Label fx:id="logoStatusLabel" text="No logo loaded"
+                       style="-fx-font-style: italic; -fx-text-fill: gray;"/>
+
+                <Separator/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Opacity:"/>
+                    <Slider fx:id="opacitySliderLogo" min="0" max="100" value="50" prefWidth="150"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Element Angle:"/>
+                    <Slider fx:id="angleSliderLogo" min="0" max="360" value="0" prefWidth="150"/>
+                    <TextField fx:id="angleFieldLogo" prefWidth="50"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Grid Angle:"/>
+                    <Slider fx:id="gridAngleSliderLogo" min="0" max="360" value="0" prefWidth="150"/>
+                    <TextField fx:id="gridAngleFieldLogo" prefWidth="50"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Spacing:"/>
+                    <TextField fx:id="spacingFieldLogo" prefWidth="50"/>
+                    <Label text="px"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Scale:"/>
+                    <Slider fx:id="scaleSliderLogo" min="10" max="200" value="100" prefWidth="150"/>
+                    <Label fx:id="scalePercentLabelLogo" text="100%"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Offset X:"/>
+                    <Spinner fx:id="offsetXSpinnerLogo" prefWidth="70" initialValue="0" editable="true"/>
+                    <Label text="px"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Offset Y:"/>
+                    <Spinner fx:id="offsetYSpinnerLogo" prefWidth="70" initialValue="0" editable="true"/>
+                    <Label text="px"/>
+                </HBox>
+
+                <Separator/>
+
+                <CheckBox fx:id="tileCheckBoxLogo" text="Tile watermark"/>
+            </VBox>
+
+            <Separator/>
+
+
+        </VBox>
+    </left>
+
+    <!-- Center panel - preview -->
+
+    <center>
+        <VBox styleClass="center-panel" style="-fx-background-color: #e0e0e0;" alignment="TOP_CENTER">
+            <VBox spacing="6" alignment="TOP_CENTER">
+                <Label text="Zoomed area / Live Preview" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+
+                <ImageView fx:id="zoomImageView" fitWidth="120" fitHeight="120"
+                           preserveRatio="false" style="-fx-border-color: #888;"/>
+
+                <Separator/>
+
+                <ImageView fx:id="previewImage" fitWidth="500" fitHeight="500"
+                           preserveRatio="true" smooth="true"/>
+            </VBox>
+        </VBox>
+    </center>
+
+    <!-- Right panel - control -->
+    <right>
+        <VBox spacing="15" styleClass="right-panel" style="-fx-padding: 15; -fx-background-color: #f0f0f0;"
+              alignment="TOP_CENTER">
+            <Button fx:id="openButton" text="Open image(s)"
+                    style="-fx-font-weight: bold; -fx-min-width: 120; -fx-pref-height: 35;"/>
+            <Button fx:id="saveButton" text="Save image(s)"
+                    style="-fx-font-weight: bold; -fx-min-width: 120; -fx-pref-height: 35;"/>
+
+            <Separator/>
+
+            <Label fx:id="filesCountLabel" text="Files loaded: 0" />
+
+            <Separator/>
+
+            <VBox spacing="5">
+                <Label text="IMAGE INFO" style="-fx-font-weight: bold;"/>
+                <Label fx:id="imageSizeLabel" text="Size: not loaded"/>
+                <Label text="Preview automatically scales" style="-fx-font-style: italic; -fx-font-size: 10px; -fx-text-fill: gray;"/>
+                <Label text="Saved images use full resolution" style="-fx-font-style: italic; -fx-font-size: 10px; -fx-text-fill: gray;"/>
+            </VBox>
+
+            <Separator/>
+
+            <Label fx:id="statusLabel" text="Ready" style="-fx-font-style: italic;"/>
+        </VBox>
+    </right>
+
+</BorderPane>

@@ -1,0 +1,39 @@
+
+.root {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-padding: 0 15 15 15;
+}
+
+#watermarkPlaceholder {
+    -fx-font-size: 24px;
+    -fx-text-fill: #c0c0c0;
+}
+
+.button-action {
+    -fx-font-weight: bold;
+    -fx-padding: 5 15;
+}
+
+.settings-panel {
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+    -fx-padding: 5;
+}
+
+.left-panel {
+    -fx-pref-width: 300px;
+    -fx-min-width: 300px;
+    -fx-max-width: 300px;
+}
+.center-panel {
+    -fx-pref-width: 900px;
+    -fx-min-width: 700px;
+    -fx-max-width: 1600px;
+}
+.right-panel {
+    -fx-pref-width: 180px;
+    -fx-min-width: 180px;
+    -fx-max-width: 180px;
+}
