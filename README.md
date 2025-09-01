@@ -1,7 +1,8 @@
 # WaterMark Generator by ALMA 
+[![CodeQL Advanced](https://github.com/Rbeat542/wmg/actions/workflows/codeql.yml/badge.svg)](https://github.com/Rbeat542/wmg/actions/workflows/codeql.yml)
 
 Here is a simple text and image watermark generation application (Java + JavaFX use) created fully with AI.
-Not optimized yet (slow, a lot of GUI issues, etc) but can be used for studying or personal needs.
+Not optimized yet (slow, a lot of GUI issues, `etc) but can be used for studying or personal needs.
 
 See a lot of things to do better and gonna improve it at my free time.
 
